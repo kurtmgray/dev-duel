@@ -18,4 +18,10 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+<ng-container *ngIf="!isAUserEmpty()">
+  <div class="dueling-users">
+    <app-user-info-card [data]="userOneData"></app-user-info-card>
+    <app-user-info-card [data]="userTwoData"></app-user-info-card>
+  </div>
+</ng-container>
 </div>

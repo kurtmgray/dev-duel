@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
+import { User } from 'src/user.model';
+
 
 @Component({
   selector: 'app-inspect',
@@ -9,7 +11,7 @@ import { UserService } from 'src/user.service';
 export class InspectComponent implements OnInit {
 
   username: string = ""
-
+  userData: User = {};
 
   constructor(private userService: UserService) { }
 
@@ -21,7 +23,9 @@ export class InspectComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.inspectUser(this.username);
+    this.userService.inspectUser(this.username)
+      .then(data => this.userData = data)
+      .catch(err => console.log(err));
   }
 
 

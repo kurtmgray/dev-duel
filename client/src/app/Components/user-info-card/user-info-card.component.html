@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isUserEmpty()">
+    <div  class="user-info-card">
+        <div class="user-pic-bio">
+            <img [attr.src]="data['avatar_url']"/>
+            <p *ngIf="data['bio']">{{data.bio}}</p>
+        </div>
+        <div class="user-info-container">
+            <ng-container *ngFor="let key of keys" class="user-info">
+                <div *ngIf="shouldShow(key)" class="info-pair">
+                    <div class="key">{{formatKey(key)}}</div>
+                    <div class="value">{{data[key]}}</div>
+        
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/user.model';
 import { UserService } from 'src/user.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { UserService } from 'src/user.service';
 export class DuelComponent implements OnInit {
   usernameOne: string = ""
   usernameTwo: string = ""
+
+  userOneData: User = {}
+  userTwoData: User = {}
 
   constructor(private userService: UserService) { }
 
@@ -24,6 +28,16 @@ export class DuelComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.duelUsers(this.usernameOne, this.usernameTwo);
+    this.userService.duelUsers(this.usernameOne, this.usernameTwo)
+      .then(data => {
+        this.userOneData = data[0];
+        this.userTwoData = data[1];
+      })
+      .catch(err => console.log(err));
+  }
+
+  isAUserEmpty() {
+    return Object.keys(this.userOneData).length === 0 
+      || Object.keys(this.userTwoData).length === 0;
   }
 }
