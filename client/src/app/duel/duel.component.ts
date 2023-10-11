@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User, SelectableUserProperties, DEFAULT_USER } from 'src/user.model';
 import { UserService } from 'src/user.service';
 
