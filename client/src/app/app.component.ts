@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
 })
 export class AppComponent {
   title = 'dev-duel';
+  error: string | null = null;
 
   constructor(private userService: UserService) { }
 
@@ -19,6 +20,10 @@ export class AppComponent {
   async duelUsers(user1: string, user2: string) {
     const data = await this.userService.duelUsers(user1, user2);
     console.log(data);
+  }
+
+  handleError(errorMessage: string) {
+    this.error = errorMessage;
   }
 
 }

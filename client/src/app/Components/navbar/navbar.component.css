@@ -1,8 +1,11 @@
 .link {
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-text-align: center;
-color: #581DFF;
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+    color: #581DFF;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
 }

@@ -22,7 +22,8 @@
   </div>
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
-<ng-container *ngIf="!isAUserDefault()">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <ng-container *ngIf="!isAUserDefault()">
   <div class="announce">
     <div class="drumroll">And the winner is...</div>
     <div class="winner">{{ userOneData | winner:userTwoData:selectedProperty | uppercase }}!!</div>

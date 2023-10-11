@@ -26,7 +26,7 @@ import { WinnerPipe } from './Pipes/winner.pipe';
     TextInputComponent,
     UserInfoCardComponent,
     SelectWinnerMenuComponent,
-    WinnerPipe
+    WinnerPipe,
   ],
   imports: [
     BrowserModule,

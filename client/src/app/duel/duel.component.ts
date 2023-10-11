@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, SelectableUserProperties, DEFAULT_USER } from 'src/user.model';
 import { UserService } from 'src/user.service';
 
@@ -8,6 +8,9 @@ import { UserService } from 'src/user.service';
   styleUrls: ['./duel.component.css']
 })
 export class DuelComponent implements OnInit {
+  
+  errorMessage: string | null = null;
+  
   usernameOne: string = ""
   usernameTwo: string = ""
 
@@ -34,8 +37,11 @@ export class DuelComponent implements OnInit {
       .then(data => {
         this.userOneData = data[0];
         this.userTwoData = data[1];
+        this.errorMessage = null
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        this.errorMessage =`${this.usernameOne} or ${this.usernameTwo} was ${err.error.message}: See ${err.error.documentation_url} for more information.`;
+        console.log(err)});
   }
 
   isAUserDefault() {
