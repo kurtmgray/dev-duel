@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserService } from 'src/user.service';
 import { UserInfoCardComponent } from './Components/user-info-card/user-info-card.component';
+import { SelectWinnerMenuComponent } from './Components/select-winner-menu/select-winner-menu.component';
+import { WinnerPipe } from './Pipes/winner.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { UserInfoCardComponent } from './Components/user-info-card/user-info-car
     LinkButtonComponent,
     HomeComponent,
     TextInputComponent,
-    UserInfoCardComponent
+    UserInfoCardComponent,
+    SelectWinnerMenuComponent,
+    WinnerPipe
   ],
   imports: [
     BrowserModule,

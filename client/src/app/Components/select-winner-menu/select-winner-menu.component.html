@@ -1,0 +1,5 @@
+<select #selectElement (change)="onPropertyChange(selectElement.value)">
+    <option *ngFor="let prop of properties" value="{{prop.value}}">
+      {{ prop.name }}
+    </option>
+</select>

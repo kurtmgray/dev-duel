@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/user.model';
+import { User, DEFAULT_USER } from 'src/user.model';
+
 @Component({
   selector: 'app-user-info-card',
   templateUrl: './user-info-card.component.html',
@@ -7,7 +8,7 @@ import { User } from 'src/user.model';
 })
 export class UserInfoCardComponent implements OnInit {
 
-  @Input() data: User = {};
+  @Input() data: User = DEFAULT_USER;
   keys: string[] = [];
 
   constructor() { }
@@ -33,7 +34,7 @@ export class UserInfoCardComponent implements OnInit {
     return key.replace(/-/g, ' ');
   }
 
-  isUserEmpty(): boolean {
-    return Object.keys(this.data).length === 0
+  isUserDefault(): boolean {
+    return this.data === DEFAULT_USER;
   }
 }

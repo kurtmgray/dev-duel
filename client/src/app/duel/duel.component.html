@@ -16,9 +16,17 @@
     ></app-text-input>
   </div>
   <br />
+  <div class="select-winner">
+    <h3>Select Winner By:</h3>
+    <app-select-winner-menu (propertySelected)="receivePropertySelected($event)"></app-select-winner-menu>
+  </div>
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
-<ng-container *ngIf="!isAUserEmpty()">
+<ng-container *ngIf="!isAUserDefault()">
+  <div class="announce">
+    <div class="drumroll">And the winner is...</div>
+    <div class="winner">{{ userOneData | winner:userTwoData:selectedProperty | uppercase }}!!</div>
+  </div>
   <div class="dueling-users">
     <app-user-info-card [data]="userOneData"></app-user-info-card>
     <app-user-info-card [data]="userTwoData"></app-user-info-card>

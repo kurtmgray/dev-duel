@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
-import { User } from 'src/user.model';
+import { User, DEFAULT_USER } from 'src/user.model';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { User } from 'src/user.model';
 export class InspectComponent implements OnInit {
 
   username: string = ""
-  userData: User = {};
+  userData: User = DEFAULT_USER;
 
   constructor(private userService: UserService) { }
 
